@@ -25,4 +25,6 @@ nature_remo_client-*.tar
 # Temporary files, for example, from tests.
 /tmp/
 
+# created own
 .appliances.sample
+escript.build.sh 

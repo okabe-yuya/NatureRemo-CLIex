@@ -1,21 +1,21 @@
 # NatureRemoClient
+NatureRemoのAPIをCLIから叩けるように作成しました。  
+理由としては業務中や作業中にPCを触ることがメインであるため、スマホ経由からの家電操作に煩わしさを感じたためです。  
 
-**TODO: Add description**
+公式API
+> https://swagger.nature.global/#/
 
-## Installation
+## 実装
+`Elixir-lang: 1.12` にて実装しました。基本的には公開されているAPIを`HTTPoison`を使って呼び出しているだけです。パターンマッチと自動ファイル読み込み & 関数呼び出し(関数名は`execute`で固定)にて簡単に拡張出来るようにしてあります。  
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `nature_remo_client` to your list of dependencies in `mix.exs`:
+現在、サポートしている家電は2種類です。
 
-```elixir
-def deps do
-  [
-    {:nature_remo_client, "~> 0.1.0"}
-  ]
-end
+- 照明
+- エアコン
+
+## サンプル
+### 照明
+照明をON
 ```
-
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at [https://hexdocs.pm/nature_remo_client](https://hexdocs.pm/nature_remo_client).
-
+> 
+```
