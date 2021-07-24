@@ -24,3 +24,5 @@ nature_remo_client-*.tar
 
 # Temporary files, for example, from tests.
 /tmp/
+
+.appliances.sample

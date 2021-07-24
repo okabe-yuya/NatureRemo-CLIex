@@ -7,7 +7,11 @@ defmodule NatureRemoClient.CustomClient do
   end
 
   def process_request_headers(headers) do
-    ["Authorization": access_token()] ++ headers
+    ["Content-Type": "application/x-www-form-urlencoded"]
+      ++
+    ["Authorization": access_token()]
+      ++
+    headers
   end
 
   def process_response_body(body) do

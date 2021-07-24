@@ -3,16 +3,16 @@ defmodule NatureRemoClient do
   Documentation for `NatureRemoClient`.
   """
 
-  @doc """
-  Hello world.
+  import NatureRemoClient.CLI, only: [ run: 1 ]
 
-  ## Examples
+  def main(argv) do
+    parsed = run(argv)
+    send_signal(parsed)
+  end
 
-      iex> NatureRemoClient.hello()
-      :world
-
-  """
-  def hello do
-    :world
+  def send_signal({ :error, {}, _ }), do: {:error, "Bad arguments! ※example: remo -d aircon on"}
+  def send_signal({ :device, { device, command, args }, _ }) do
+    to_string = Atom.to_string(device) |> String.capitalize()
+    String.to_existing_atom("Elixir.NatureRemoClient.Devices." <> to_string) |> apply(:execute, [command, args])
   end
 end
